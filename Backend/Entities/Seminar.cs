@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Backend.Model
+namespace Backend.Entities
 {
     public class Seminar
     {
-        public int Id { get; set; }
+        public int id { get; set; }
 
         public string Name { get; set; }
 
-        public string description { get; set; }
+        public string Description { get; set; }
 
-        public int numberOfAvailableSeats { get; set; }
+        public int NumberOfAvailableSeats { get; set; }
 
-        public DateTime Duration { get; set; }
+        public int Duration { get; set; }
+
+        public List<User> users { get; set; }
     }
 }

@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Backend.Models;
 
-namespace Backend.Model
+namespace Backend.Entities
 {
     public class User
     {
-        public int Id { get; set; }
+        public int id { get; set; }
 
         public string Name { get; set; }
 
         public string description { get; set; }
-
-        public Seminar[] listOfBookedSeminars { get; set; }
     }
 }
