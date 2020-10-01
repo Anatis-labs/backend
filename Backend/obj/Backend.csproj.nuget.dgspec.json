@@ -1,21 +1,18 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\db_gb\\source\\repos\\Backend\\Backend\\Backend.csproj": {}
+    "C:\\Users\\db_gb\\Google Drive\\Skola\\Gitkraken\\backend\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\db_gb\\source\\repos\\Backend\\Backend\\Backend.csproj": {
+    "C:\\Users\\db_gb\\Google Drive\\Skola\\Gitkraken\\backend\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\db_gb\\source\\repos\\Backend\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\db_gb\\Google Drive\\Skola\\Gitkraken\\backend\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\db_gb\\source\\repos\\Backend\\Backend\\Backend.csproj",
+        "projectPath": "C:\\Users\\db_gb\\Google Drive\\Skola\\Gitkraken\\backend\\Backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\db_gb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\db_gb\\source\\repos\\Backend\\Backend\\obj\\",
+        "outputPath": "C:\\Users\\db_gb\\Google Drive\\Skola\\Gitkraken\\backend\\Backend\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "C:\\Users\\db_gb\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"

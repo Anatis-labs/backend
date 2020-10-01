@@ -22,12 +22,14 @@ namespace Backend.Controllers
             {
                 var users = context.Set<User>();
                 var result = new List<String>();
+                var resultId = new List<int>();
                 foreach (var user in users)
                 {
                     if (id == -1 || (id != -1 && id == user.id))
                     {
-                        result.Add(user.Name, user);
-                    }
+                        resultId.Add(user.id);
+                        result.Add(user.Name);
+                    }                   
                 }
                 return result;
             }
@@ -92,19 +94,11 @@ namespace Backend.Controllers
         {
             using (var context = new ApplicationDbContext())
             {
-                context.Users.Remove(context.Users.FirstOrDefault(u => u.id == id));
-                context.SaveChanges();
+                var user = new User { id = id };
+                context.Users.Attach(user);
+                context.Users.Remove(user);
+                context.SaveChanges();             
             }
-
-            /*using (var context = new ApplicationDbContext())
-            {
-                var user = context.Users
-                .Where(u => u.id == id)
-                .FirstOrDefault();
-
-                context.Entry(user).State = System.Data.Entity.EntityState.Deleted;
-                context.SaveChanges();
-            }*/
         }
     }
 }

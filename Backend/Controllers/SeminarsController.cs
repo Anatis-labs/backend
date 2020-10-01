@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Backend.Entities;
+using Backend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -35,8 +36,14 @@ namespace Backend.Controllers
 
         // POST api/<SeminarsController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] SeminarViewModel SeminarVM)
         {
+            using (var context = new ApplicationDbContext())
+            {
+                var seminar = new Seminar { Name = SeminarVM.Name, Description = SeminarVM.Description };
+                context.Seminars.Add(seminar);
+                context.SaveChanges();
+            }
         }
 
         // PUT api/<SeminarsController>/5
@@ -49,6 +56,13 @@ namespace Backend.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            using (var context = new ApplicationDbContext())
+            {
+                var seminars = new Seminar { id = id };
+                context.Seminars.Attach(seminars);
+                context.Seminars.Remove(seminars);
+                context.SaveChanges();
+            }
         }
     }
 }
