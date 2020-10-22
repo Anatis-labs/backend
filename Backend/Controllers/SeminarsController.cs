@@ -26,8 +26,33 @@ namespace Backend.Controllers
             }
         }
 
-        // GET api/<SeminarsController>/5
-        [HttpGet("{id}")]
+
+        public IEnumerable<string> GetQuery([FromQuery] int id = -1)
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                var seminars = context.Set<Seminar>();
+                var result = new List<String>();
+                var resultId = new List<int>();
+                
+                foreach (var seminar in seminars)
+                {
+                    if (id == -1 || (id != -1 && id == seminar.id))
+                    {
+                        result.Add(seminar.id.ToString());
+                        result.Add(seminar.Title);
+                        result.Add(seminar.Description);
+                        result.Add(seminar.Duration.ToString());
+                        result.Add(seminar.NumberOfAvailableSeats.ToString());
+                        result.Add(seminar.Date);
+                    }
+                }
+                return result;
+            }
+        }
+
+            // GET api/<SeminarsController>/5
+            [HttpGet("{id}")]
         public string Get(int id)
         {
 
@@ -40,7 +65,7 @@ namespace Backend.Controllers
         {
             using (var context = new ApplicationDbContext())
             {
-                var seminar = new Seminar { Name = SeminarVM.Name, Description = SeminarVM.Description };
+                var seminar = new Seminar { Title = SeminarVM.Title, Description = SeminarVM.Description };
                 context.Seminars.Add(seminar);
                 context.SaveChanges();
             }

@@ -7,12 +7,16 @@ namespace Backend.Models
 {
     public class SeminarViewModel
     {
-        public string Name { get; set; }
+        public int id { get; set; }
+
+        public string Title { get; set; }
 
         public string Description { get; set; }
+        public string Date { get; set; }
 
-        public int numberOfAvailableSeats { get; set; }
+        public int NumberOfAvailableSeats { get; set; }
 
-        public DateTime Duration { get; set; }
+        public int Duration { get; set; }
+
     }
 }

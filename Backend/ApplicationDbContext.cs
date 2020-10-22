@@ -18,5 +18,12 @@ namespace Backend
         {
             optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=SignToSeminar;Trusted_Connection=True;");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UserSeminar>().HasKey(sc => new { sc.users, sc.seminars });
+
+        }
+
     }
 }

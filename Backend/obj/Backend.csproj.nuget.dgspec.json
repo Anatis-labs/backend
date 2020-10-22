@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\db_gb\\Google Drive\\Skola\\Gitkraken\\backend\\Backend\\Backend.csproj": {}
+    "C:\\Users\\db_gb\\Google Drive\\gitkraken\\backend\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\db_gb\\Google Drive\\Skola\\Gitkraken\\backend\\Backend\\Backend.csproj": {
+    "C:\\Users\\db_gb\\Google Drive\\gitkraken\\backend\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\db_gb\\Google Drive\\Skola\\Gitkraken\\backend\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\db_gb\\Google Drive\\gitkraken\\backend\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\db_gb\\Google Drive\\Skola\\Gitkraken\\backend\\Backend\\Backend.csproj",
+        "projectPath": "C:\\Users\\db_gb\\Google Drive\\gitkraken\\backend\\Backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\db_gb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\db_gb\\Google Drive\\Skola\\Gitkraken\\backend\\Backend\\obj\\",
+        "outputPath": "C:\\Users\\db_gb\\Google Drive\\gitkraken\\backend\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\db_gb\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -38,6 +38,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.8, )"
