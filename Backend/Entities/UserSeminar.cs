@@ -7,11 +7,11 @@ namespace Backend.Entities
 {
     public class UserSeminar
     {
-        public int seminarid { get; set; }
-        public IList<Seminar> seminars { get; set; }
+        public int seminarId { get; set; }
+        public Seminar seminar { get; set; }
 
-        public int userid { get; set; }
-        public IList<User> users { get; set; }
+        public int userId { get; set; }
+        public User user { get; set; }
 
 
 

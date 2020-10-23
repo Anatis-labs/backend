@@ -9,14 +9,14 @@ namespace Backend.Entities
 {
     public class User
     {
-        [Key]
+        
         public int id { get; set; }
 
         public string Name { get; set; }
 
         public string description { get; set; }
 
-        public IList<Seminar> seminars { get; set; }
+        public IList<UserSeminar> userseminars { get; set; }
 
     }
 }

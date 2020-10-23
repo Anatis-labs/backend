@@ -16,5 +16,6 @@ namespace Backend.Models
 
         public List<Seminar> seminars { get; set; }
 
+
     }
 }

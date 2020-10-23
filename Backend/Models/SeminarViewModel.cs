@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Backend.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ namespace Backend.Models
         public int NumberOfAvailableSeats { get; set; }
 
         public int Duration { get; set; }
+
+        public IList<User> users { get; set; }
 
     }
 }

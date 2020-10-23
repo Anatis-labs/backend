@@ -21,7 +21,7 @@ namespace Backend.Controllers
         {
             using (var context = new ApplicationDbContext())
             {
-                var seminars = context.Seminars.Include(s => s.users).ToArray();
+                var seminars = context.Seminars.Include(s => s.userseminar).ToArray();
                 return seminars;
             }
         }

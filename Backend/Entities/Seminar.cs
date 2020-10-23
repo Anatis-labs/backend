@@ -9,7 +9,7 @@ namespace Backend.Entities
 {
     public class Seminar
     {   
-        [ForeignKey("User")]
+        
         public int id { get; set; }
 
         public string Title { get; set; }
@@ -21,7 +21,7 @@ namespace Backend.Entities
 
         public int Duration { get; set; }
 
-        public IList<User> users { get; set; }
+        public IList<UserSeminar> userseminar { get; set; }
         
 
     }
