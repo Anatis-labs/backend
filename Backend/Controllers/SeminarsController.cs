@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Backend.Entities;
 using Backend.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Backend.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("CORSPolicy")]
     [ApiController]
     public class SeminarsController : ControllerBase
     {
@@ -27,27 +29,12 @@ namespace Backend.Controllers
         }
 
 
-        public IEnumerable<string> GetQuery([FromQuery] int id = -1)
+        public IEnumerable<Seminar> GetQuery([FromQuery] int id = -1)
         {
             using (var context = new ApplicationDbContext())
             {
-                var seminars = context.Set<Seminar>();
-                var result = new List<String>();
-                var resultId = new List<int>();
-                
-                foreach (var seminar in seminars)
-                {
-                    if (id == -1 || (id != -1 && id == seminar.id))
-                    {
-                        result.Add(seminar.id.ToString());
-                        result.Add(seminar.Title);
-                        result.Add(seminar.Description);
-                        result.Add(seminar.Duration.ToString());
-                        result.Add(seminar.NumberOfAvailableSeats.ToString());
-                        result.Add(seminar.Date);
-                    }
-                }
-                return result;
+                           
+                return context.Seminars;
             }
         }
 

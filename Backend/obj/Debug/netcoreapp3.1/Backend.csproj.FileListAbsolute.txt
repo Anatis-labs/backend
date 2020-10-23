@@ -182,8 +182,6 @@ C:\Users\db_gb\Google Drive\gitkraken\backend\Backend\obj\Debug\netcoreapp3.1\Ba
 C:\Users\db_gb\projects\backend\Backend\obj\Debug\netcoreapp3.1\Backend.csprojAssemblyReference.cache
 C:\Users\db_gb\projects\backend\Backend\obj\Debug\netcoreapp3.1\Backend.AssemblyInfoInputs.cache
 C:\Users\db_gb\projects\backend\Backend\obj\Debug\netcoreapp3.1\Backend.AssemblyInfo.cs
-C:\Users\db_gb\projects\backend\Backend\obj\Debug\netcoreapp3.1\Backend.csproj.CoreCompileInputs.cache
-C:\Users\db_gb\projects\backend\Backend\obj\Debug\netcoreapp3.1\Backend.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\db_gb\projects\backend\Backend\obj\Debug\netcoreapp3.1\Backend.dll
 C:\Users\db_gb\projects\backend\Backend\obj\Debug\netcoreapp3.1\Backend.pdb
 C:\Users\db_gb\projects\backend\Backend\bin\Debug\netcoreapp3.1\appsettings.Development.json
@@ -242,3 +240,5 @@ C:\Users\db_gb\projects\backend\Backend\obj\Debug\netcoreapp3.1\staticwebassets\
 C:\Users\db_gb\projects\backend\Backend\obj\Debug\netcoreapp3.1\Backend.genruntimeconfig.cache
 C:\Users\db_gb\projects\backend\Backend\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
 C:\Users\db_gb\projects\backend\Backend\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
+C:\Users\db_gb\projects\backend\Backend\obj\Debug\netcoreapp3.1\Backend.csproj.CoreCompileInputs.cache
+C:\Users\db_gb\projects\backend\Backend\obj\Debug\netcoreapp3.1\Backend.MvcApplicationPartsAssemblyInfo.cache

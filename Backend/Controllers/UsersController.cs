@@ -1,5 +1,6 @@
 ﻿using Backend.Entities;
 using Backend.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Linq;
 namespace Backend.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("CORSPolicy")]
     [ApiController]
     public class UsersController : ControllerBase
     {
