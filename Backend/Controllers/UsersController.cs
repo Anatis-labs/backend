@@ -2,6 +2,7 @@
 using Backend.Models;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,53 +19,37 @@ namespace Backend.Controllers
         // GET: api/<UserController>
         [HttpGet]
         //public IEnumerable<string> Get()
-        public IEnumerable<string> GetQuery([FromQuery] int id = -1)
+        [HttpGet]
+        public IEnumerable<User> Get()
         {
             using (var context = new ApplicationDbContext())
             {
-                var users = context.Set<User>();
-                var result = new List<String>();
-                var resultId = new List<int>();
-                foreach (var user in users)
-                {
-                    if (id == -1 || (id != -1 && id == user.id))
-                    {
-                        resultId.Add(user.id);
-                        result.Add(user.Name);
-                    }                   
-                }
-                return result;
+                var users = context.Users.Include(a => a.userseminar).ToArray();
+                return users;
             }
-
-            /*using (var context = new ApplicationDbContext())
-            {
-                var users = context.Set<User>();
-                var result = new List<String>();
-                foreach (var user in users)
-                {
-                    result.Add(user.Name);
-                }
-                return result;
-            }*/
         }
 
-        // GET api/<UserController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IEnumerable<User> GetQuery([FromQuery] int id)
         {
             using (var context = new ApplicationDbContext())
             {
-                var users = context.Set<User>();
-                var result = new List<String>();
-                foreach (var user in users)
-                {
-                    if (user.id == id)
-                    {
-                        result.Add(user.Name);
-                    }
-                }
+                return context.Users;
             }
-            return "value";
+        }
+
+        // fetches User based on id in url
+        [HttpGet("{id}")]
+        public User Get(int id)
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                var User = context.Users.Where(o => o.id == id).FirstOrDefault();
+                if (User != null)
+                    return User;
+                else
+                    return null;
+            }
         }
 
         // POST api/<UserController>

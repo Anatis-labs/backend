@@ -19,7 +19,7 @@ namespace Backend.Models
 
         public int Duration { get; set; }
 
-        public IList<User> users { get; set; }
+        public IList<UserSeminar> userseminar { get; set; }
 
     }
 }

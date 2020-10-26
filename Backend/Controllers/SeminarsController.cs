@@ -28,22 +28,26 @@ namespace Backend.Controllers
             }
         }
 
-
-        public IEnumerable<Seminar> GetQuery([FromQuery] int id = -1)
+        [HttpGet("{id}")]
+        public IEnumerable<Seminar> GetQuery([FromQuery] int id)
         {
             using (var context = new ApplicationDbContext())
-            {
-                           
+            {               
                 return context.Seminars;
             }
         }
 
-            // GET api/<SeminarsController>/5
+            // fetches seminar based on id in url
             [HttpGet("{id}")]
-        public string Get(int id)
+        public Seminar Get(int id)
         {
-
-            return "value";
+            using (var context = new ApplicationDbContext()) { 
+                var seminar = context.Seminars.Where(o => o.id == id).FirstOrDefault();
+            if (seminar != null)
+                return seminar;
+            else
+                return null;
+            }
         }
 
         // POST api/<SeminarsController>
@@ -52,7 +56,7 @@ namespace Backend.Controllers
         {
             using (var context = new ApplicationDbContext())
             {
-                var seminar = new Seminar { Title = SeminarVM.Title, Description = SeminarVM.Description };
+                var seminar = new Seminar { Title = SeminarVM.Title, Description = SeminarVM.Description, Date = SeminarVM.Date };
                 context.Seminars.Add(seminar);
                 context.SaveChanges();
             }

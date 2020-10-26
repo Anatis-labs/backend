@@ -16,7 +16,7 @@ namespace Backend.Entities
 
         public string description { get; set; }
 
-        public IList<UserSeminar> userseminars { get; set; }
+        public IList<UserSeminar> userseminar { get; set; }
 
     }
 }

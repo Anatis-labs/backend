@@ -14,7 +14,7 @@ namespace Backend.Models
 
         public string description { get; set; }
 
-        public List<Seminar> seminars { get; set; }
+        public IList<UserSeminar> userseminars { get; set; }
 
 
     }
