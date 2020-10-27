@@ -24,7 +24,7 @@ namespace Backend.Controllers
         {
             using (var context = new ApplicationDbContext())
             {
-                var users = context.Users.Include(a => a.userseminar).ToArray();
+                var users = context.Users.Include(a => a.userseminars).ToArray();
                 return users;
             }
         }
@@ -58,7 +58,7 @@ namespace Backend.Controllers
         {
             using (var context = new ApplicationDbContext())
             {
-                var user = new User { Name = UserVM.Name, description = UserVM.description };
+                var user = new User { Name = UserVM.Name, Description = UserVM.Description };
                 context.Users.Add(user);
                 context.SaveChanges();
             }

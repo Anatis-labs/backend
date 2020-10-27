@@ -52,10 +52,10 @@ namespace Backend.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("description")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
@@ -81,7 +81,7 @@ namespace Backend.Migrations
             modelBuilder.Entity("Backend.Entities.UserSeminar", b =>
                 {
                     b.HasOne("Backend.Entities.Seminar", "seminar")
-                        .WithMany("userseminar")
+                        .WithMany("userseminars")
                         .HasForeignKey("seminarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

@@ -23,17 +23,8 @@ namespace Backend.Controllers
         {
             using (var context = new ApplicationDbContext())
             {
-                var seminars = context.Seminars.Include(s => s.userseminar).ToArray();
+                var seminars = context.Seminars.Include(s => s.userseminars).ToArray();
                 return seminars;
-            }
-        }
-
-        [HttpGet("{id}")]
-        public IEnumerable<Seminar> GetQuery([FromQuery] int id)
-        {
-            using (var context = new ApplicationDbContext())
-            {               
-                return context.Seminars;
             }
         }
 
@@ -43,7 +34,7 @@ namespace Backend.Controllers
         {
             using (var context = new ApplicationDbContext()) { 
                 var seminar = context.Seminars.Where(o => o.id == id).FirstOrDefault();
-            if (seminar != null)
+                if (seminar != null)                   
                 return seminar;
             else
                 return null;

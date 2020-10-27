@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201023082134_backend")]
-    partial class backend
+    [Migration("20201027104309_catpage")]
+    partial class catpage
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,10 +54,10 @@ namespace Backend.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("description")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
@@ -83,7 +83,7 @@ namespace Backend.Migrations
             modelBuilder.Entity("Backend.Entities.UserSeminar", b =>
                 {
                     b.HasOne("Backend.Entities.Seminar", "seminar")
-                        .WithMany("userseminar")
+                        .WithMany("userseminars")
                         .HasForeignKey("seminarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

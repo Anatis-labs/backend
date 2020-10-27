@@ -18,8 +18,7 @@ namespace Backend.Models
         public int NumberOfAvailableSeats { get; set; }
 
         public int Duration { get; set; }
-
-        public IList<UserSeminar> userseminar { get; set; }
+        public IList<UserSeminar> userseminars { get; set; }
 
     }
 }
