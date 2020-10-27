@@ -55,6 +55,9 @@ namespace Backend.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -75,7 +78,7 @@ namespace Backend.Migrations
 
                     b.HasIndex("seminarId");
 
-                    b.ToTable("UserSeminar");
+                    b.ToTable("userSeminars");
                 });
 
             modelBuilder.Entity("Backend.Entities.UserSeminar", b =>

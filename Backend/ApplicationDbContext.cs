@@ -2,12 +2,14 @@
 using Microsoft.EntityFrameworkCore;
 
 
+
 namespace Backend
 {
     public class ApplicationDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Seminar> Seminars { get; set; }
+        public DbSet<UserSeminar> userSeminars { get; set; }
 
 
         /*public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)

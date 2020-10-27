@@ -22,7 +22,7 @@ namespace Backend.Controllers
         public IEnumerable<Seminar> Get()
         {
             using (var context = new ApplicationDbContext())
-            {
+            {            
                 var seminars = context.Seminars.Include(s => s.userseminars).ToArray();
                 return seminars;
             }
@@ -47,7 +47,7 @@ namespace Backend.Controllers
         {
             using (var context = new ApplicationDbContext())
             {
-                var seminar = new Seminar { Title = SeminarVM.Title, Description = SeminarVM.Description, Date = SeminarVM.Date };
+                var seminar = new Seminar { Title = SeminarVM.Title, Description = SeminarVM.Description, Date = SeminarVM.Date, Duration = SeminarVM.Duration};
                 context.Seminars.Add(seminar);
                 context.SaveChanges();
             }
