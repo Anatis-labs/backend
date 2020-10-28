@@ -58,7 +58,7 @@ namespace Backend.Controllers
         {
             using (var context = new ApplicationDbContext())
             {
-                var user = new User { Name = UserVM.Name, Description = UserVM.Description };
+                var user = new User { Name = UserVM.Name, Description = UserVM.Description, Email = UserVM.Email };
                 context.Users.Add(user);
                 context.SaveChanges();
             }

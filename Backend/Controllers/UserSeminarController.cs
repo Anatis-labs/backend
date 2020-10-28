@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Backend.Entities;
@@ -15,12 +16,6 @@ namespace Backend.Controllers
     [Route("api/[controller]")]
     [EnableCors("CORSPolicy")]
     [ApiController]
-    public class JSONPostRequest 
-    {
-        public string name { get; set; }
-        public string email { get; set; }
-        public int seminarid { get; set; }
-    }
 
     public class UserSeminarController : ControllerBase
     {
@@ -42,17 +37,59 @@ namespace Backend.Controllers
             return "value";
         }
 
+
+        public class JSONPostRequest
+        {
+            public string name { get; set; }
+            public string email { get; set; }
+            public int seminarId { get; set; }
+        }
+
         // POST api/<UserSeminarController>
         [HttpPost]
-        public void Post([FromBody] UserSeminarViewModel UserSeminarVM)
+        public void Post([FromBody] JSONPostRequest userseminar)
         {
-            using (var context = new ApplicationDbContext())
-            {
-                var userseminar = new UserSeminar { userId = UserSeminarVM.userId, seminarId = UserSeminarVM.seminarId};
-                context.userSeminars.Add(userseminar);
+            string name = userseminar.name;
+            string email = userseminar.email;
+            int seminarId = userseminar.seminarId;
+            
+
+            var context = new ApplicationDbContext();
+            var user = new User { Name = name, Email = email };
+            var matchingUser = context.Users.ToList().Find(x => x.Name == name && x.Email == email);
+
+            if (matchingUser == null)
+            {              
+                context.Users.Add(user);            
+                context.SaveChanges();
+                var addedUser = context.Users.ToList().Find(x => x.Name == name && x.Email == email);
+                var userSeminar = new UserSeminar { seminarId = seminarId, userId = addedUser.id };
+                context.userSeminars.Add(userSeminar);
                 context.SaveChanges();
             }
+            else
+            {
+                var userSeminar = new UserSeminar { seminarId = seminarId, userId = matchingUser.id};
+                context.userSeminars.Add(userSeminar);
+                context.SaveChanges();             
+            }
         }
+
+
+
+
+
+
+
+        //public void Post([FromBody] UserSeminarViewModel UserSeminarVM)
+        //{
+        //    using (var context = new ApplicationDbContext())
+        //    {
+        //        var userseminar = new UserSeminar { seminarId = UserSeminarVM.seminarId, userId = UserSeminarVM.userId };
+        //        context.userSeminars.Add(userseminar);
+        //        context.SaveChanges();
+        //    }
+        //}
 
 
 

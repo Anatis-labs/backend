@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201027182712_catpage")]
+    [Migration("20201028112719_catpage")]
     partial class catpage
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
